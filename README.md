@@ -2,6 +2,4 @@
 
 ## Usage
 
-```bash
-make
-```
+Run `make` and interact with the sample programs manually by typing commands.
