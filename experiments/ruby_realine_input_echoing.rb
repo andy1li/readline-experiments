@@ -1,4 +1,3 @@
 require 'readline'
 
-print "$ "
-Readline.readline
+Readline.readline("$ ")
