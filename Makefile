@@ -1,4 +1,12 @@
 all:
+	@echo "\033[31mRunning c:\033[0m"
+	make c
+	@echo
+
+	@echo "\033[31mRecording c:\033[0m"
+	make record_c
+	@echo
+
 	@echo "\033[31mRunning javascript:\033[0m"
 	make javascript
 	@echo
@@ -14,6 +22,14 @@ all:
 	@echo "\033[31mRecording ruby:\033[0m"
 	make record_ruby
 	@echo
+
+c:
+	gcc experiments/c.c -o experiments/c.out -lreadline
+	./experiments/c.out
+
+record_c:
+	script -q /dev/null ./experiments/c.out > recordings/c.txt
+	xxd recordings/c.txt
 
 javascript:
 	script -q /dev/null node experiments/javascript.js
