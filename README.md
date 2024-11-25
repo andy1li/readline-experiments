@@ -1,1 +1,7 @@
-# readline_experiments
+# Readline Experiments
+
+## Usage
+
+```bash
+make
+```
