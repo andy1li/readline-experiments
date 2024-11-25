@@ -1,4 +1,11 @@
-all:
+check_recordings:
+	xxd recordings/c.txt
+	@echo
+	xxd recordings/javascript.txt
+	@echo
+	xxd recordings/ruby.txt
+
+run_experiments:
 	@echo "\033[31mRunning c:\033[0m"
 	make c
 	@echo
