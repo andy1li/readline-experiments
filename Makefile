@@ -1,12 +1,30 @@
 all:
-	make javascript_input_echoing
-	make ruby_input_echoing
-javascript_input_echoing:
-	@echo "\033[31mRunning command:\033[0m"
-	echo "The text you're seeing is echoed from readline" | node experiments/javascript_realine_input_echoing.js
+	@echo "\033[31mRunning javascript:\033[0m"
+	make javascript
 	@echo
 
-ruby_input_echoing:
-	@echo "\033[31mRunning command:\033[0m"
-	echo "The text you're seeing is echoed from readline" | ruby experiments/ruby_realine_input_echoing.rb
+	@echo "\033[31mRecording javascript:\033[0m"
+	make record_javascript
 	@echo
+
+	@echo "\033[31mRunning ruby:\033[0m"
+	make ruby
+	@echo
+
+	@echo "\033[31mRecording ruby:\033[0m"
+	make record_ruby
+	@echo
+
+javascript:
+	script -q /dev/null node experiments/javascript.js
+
+record_javascript:
+	script -q /dev/null node experiments/javascript.js > recordings/javascript.txt
+	xxd recordings/javascript.txt
+
+ruby:
+	script -q /dev/null ruby experiments/ruby.rb
+
+record_ruby:
+	script -q /dev/null ruby experiments/ruby.rb > recordings/ruby.txt
+	xxd recordings/ruby.txt

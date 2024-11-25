@@ -1,3 +1,3 @@
-require 'readline'
+require "readline"
 
 Readline.readline("$ ")
