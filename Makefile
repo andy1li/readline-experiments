@@ -4,6 +4,10 @@ check_recordings:
 	xxd recordings/javascript.txt
 	@echo
 	xxd recordings/ruby.txt
+	@echo
+	xxd recordings/javascript_with_go.txt
+	@echo
+	xxd recordings/ruby_with_go.txt
 
 run_experiments:
 	@echo "\033[31mRunning c:\033[0m"
@@ -30,6 +34,10 @@ run_experiments:
 	make record_ruby
 	@echo
 
+	@echo "\033[31mRecording javascript and ruby with go:\033[0m"
+	make recored_with_go
+	@echo
+
 c:
 	gcc experiments/c.c -o experiments/c.out -lreadline
 	./experiments/c.out
@@ -51,3 +59,9 @@ ruby:
 record_ruby:
 	script -q /dev/null ruby experiments/ruby.rb > recordings/ruby.txt
 	xxd recordings/ruby.txt
+
+recored_with_go:
+	cd experiments/go && go run .
+	xxd recordings/javascript_with_go.txt
+	@echo
+	xxd recordings/ruby_with_go.txt
